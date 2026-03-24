@@ -1,0 +1,634 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { 
+  ArrowRight, 
+  CheckCircle2, 
+  Menu, 
+  X, 
+  MessageCircle, 
+  TrendingUp, 
+  Search, 
+  Target, 
+  ShoppingBag,
+  ChevronRight,
+  Instagram,
+  Linkedin
+} from 'lucide-react';
+
+// --- Components ---
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: 'Sobre', href: '#sobre' },
+    { name: 'Método', href: '#metodo' },
+    { name: 'Atuação', href: '#atuacao' },
+    { name: 'Contato', href: '#contato' },
+  ];
+
+  return (
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled ? 'bg-brand-offwhite/80 backdrop-blur-lg py-4 shadow-sm' : 'bg-transparent py-6'}`}>
+      <div className="container-custom flex justify-between items-center">
+        <a href="#" className="flex items-center gap-3 group">
+          <img 
+            src="/logo.png" 
+            alt="Thais Teles Logo" 
+            className="h-10 md:h-12 w-auto object-contain transition-transform group-hover:scale-105"
+            referrerPolicy="no-referrer"
+            onError={(e) => {
+              e.currentTarget.style.display = 'none';
+              const textLogo = e.currentTarget.nextElementSibling as HTMLElement;
+              if (textLogo) {
+                textLogo.classList.remove('hidden');
+                textLogo.classList.add('block');
+              }
+            }}
+          />
+          <span className="font-serif text-2xl font-bold tracking-tighter text-brand-wine hidden md:block">
+            THAIS TELES
+          </span>
+        </a>
+
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center gap-10">
+          {navLinks.map((link) => (
+            <a 
+              key={link.name} 
+              href={link.href} 
+              className="text-sm font-medium tracking-wide text-slate-600 hover:text-brand-wine transition-colors"
+            >
+              {link.name}
+            </a>
+          ))}
+          <a 
+            href="#contato" 
+            className="bg-brand-wine text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-brand-purple transition-all shadow-lg shadow-brand-wine/10"
+          >
+            Falar com especialista
+          </a>
+        </div>
+
+        {/* Mobile Toggle */}
+        <button className="md:hidden text-brand-wine" onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="absolute top-full left-0 w-full bg-brand-offwhite border-b border-brand-beige md:hidden"
+          >
+            <div className="flex flex-col p-8 gap-6">
+              {navLinks.map((link) => (
+                <a 
+                  key={link.name} 
+                  href={link.href} 
+                  className="text-lg font-medium text-slate-700"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </a>
+              ))}
+              <a 
+                href="#contato" 
+                className="bg-brand-wine text-white px-6 py-4 rounded-xl text-center font-medium"
+                onClick={() => setIsOpen(false)}
+              >
+                Falar com especialista
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
+  );
+};
+
+const Hero = () => {
+  return (
+    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-brand-beige/30">
+      {/* Abstract Background Elements */}
+      <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-brand-wine/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-brand-purple/5 rounded-full blur-3xl" />
+      
+      <div className="container-custom grid md:grid-cols-2 gap-16 items-center relative z-10">
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <span className="inline-block text-brand-wine font-medium tracking-[0.2em] uppercase text-xs mb-6">
+            Consultoria estratégica em tráfego pago
+          </span>
+          <h1 className="text-5xl md:text-7xl font-serif leading-[1.1] text-slate-900 mb-8">
+            Transforme investimento em <span className="italic text-brand-wine">crescimento previsível</span>
+          </h1>
+          <p className="text-lg text-slate-600 leading-relaxed mb-10 max-w-lg">
+            Gestão e consultoria em Google Ads, Meta Ads e Mercado Livre Ads com visão estratégica e foco em sustentabilidade financeira.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <a 
+              href="#contato" 
+              className="bg-brand-wine text-white px-8 py-4 rounded-full font-medium hover:bg-brand-purple transition-all flex items-center justify-center gap-2 shadow-xl shadow-brand-wine/20 group"
+            >
+              Falar com especialista
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </a>
+            <a 
+              href="#metodo" 
+              className="border border-brand-wine/20 text-brand-wine px-8 py-4 rounded-full font-medium hover:bg-brand-wine/5 transition-all text-center"
+            >
+              Conheça o método
+            </a>
+          </div>
+        </motion.div>
+
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.2 }}
+          className="relative"
+        >
+          {/* Abstract Growth Visual */}
+          <div className="relative aspect-square max-w-md mx-auto">
+            <svg viewBox="0 0 400 400" className="w-full h-full">
+              <defs>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style={{ stopColor: '#4A0E2E', stopOpacity: 0.1 }} />
+                  <stop offset="100%" style={{ stopColor: '#2D1B4E', stopOpacity: 0.3 }} />
+                </linearGradient>
+              </defs>
+              <motion.path 
+                d="M50,350 Q150,300 200,200 T350,50" 
+                fill="none" 
+                stroke="url(#grad1)" 
+                strokeWidth="40" 
+                strokeLinecap="round"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 2, ease: "easeInOut" }}
+              />
+              <motion.path 
+                d="M50,350 Q150,320 200,250 T350,150" 
+                fill="none" 
+                stroke="#4A0E2E" 
+                strokeWidth="2" 
+                strokeDasharray="8 8"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 2.5, ease: "easeInOut", delay: 0.5 }}
+              />
+              <circle cx="350" cy="50" r="8" fill="#4A0E2E" className="animate-pulse" />
+            </svg>
+            
+            {/* Floating metrics cards */}
+            <motion.div 
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute top-1/4 -left-10 glass-card p-4 rounded-2xl"
+            >
+              <div className="flex items-center gap-3">
+                <div className="bg-green-100 p-2 rounded-lg">
+                  <TrendingUp size={20} className="text-green-600" />
+                </div>
+                <div>
+                  <p className="text-[10px] uppercase tracking-wider text-slate-400 font-bold">ROI Estratégico</p>
+                  <p className="text-lg font-serif font-bold text-slate-800">+240%</p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              className="absolute bottom-1/4 -right-10 glass-card p-4 rounded-2xl"
+            >
+              <div className="flex items-center gap-3">
+                <div className="bg-brand-wine/10 p-2 rounded-lg">
+                  <Target size={20} className="text-brand-wine" />
+                </div>
+                <div>
+                  <p className="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Escala</p>
+                  <p className="text-lg font-serif font-bold text-slate-800">Previsível</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+const Positioning = () => {
+  return (
+    <section className="section-spacing bg-white">
+      <div className="container-custom">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-5xl font-serif leading-tight mb-10 text-slate-900"
+          >
+            Aquisição como estrutura de crescimento, <br />
+            <span className="italic text-brand-wine">não como impulsionamento</span>
+          </motion.h2>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="space-y-6 text-lg text-slate-600 leading-relaxed"
+          >
+            <p>
+              Tráfego pago não é sobre rodar anúncios. É sobre construir base para escalar com segurança e previsibilidade.
+            </p>
+            <p>
+              Minha abordagem vai além de métricas superficiais: analiso margem, funil, posicionamento, estrutura comercial e sustentabilidade da operação.
+            </p>
+            <p className="font-medium text-slate-900">
+              Porque tráfego não sustenta negócio desorganizado. Mas, quando bem estruturado, transforma investimento em crescimento consistente.
+            </p>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const About = () => {
+  return (
+    <section id="sobre" className="section-spacing bg-brand-beige/20">
+      <div className="container-custom grid md:grid-cols-2 gap-20 items-center">
+        <div className="relative">
+          <div className="aspect-[4/5] bg-brand-wine/10 rounded-3xl overflow-hidden relative">
+            {/* Placeholder for Thais's photo */}
+            <img 
+              src="https://picsum.photos/seed/professional/800/1000" 
+              alt="Thais Teles" 
+              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+              referrerPolicy="no-referrer"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-wine/40 to-transparent" />
+          </div>
+          <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-brand-wine rounded-full flex items-center justify-center p-8 text-white text-center">
+            <p className="font-serif italic text-lg leading-tight">Estratégia & Visão de Negócio</p>
+          </div>
+        </div>
+
+        <div>
+          <span className="text-brand-wine font-medium tracking-widest uppercase text-xs mb-4 block">Sobre</span>
+          <h2 className="text-4xl md:text-5xl font-serif mb-8 text-slate-900">Thais Teles</h2>
+          <div className="space-y-6 text-slate-600 leading-relaxed">
+            <p>
+              Sou formada em Marketing desde 2014 e atuo com gestão e consultoria em tráfego pago com uma visão que vai além da campanha.
+            </p>
+            <p>
+              Minha experiência começou prestando consultoria para grandes players como <span className="text-slate-900 font-medium">Google e Mercado Livre</span> — e foi ali que desenvolvi algo que hoje é meu maior diferencial: entender aquisição como estrutura de crescimento, não como impulsionamento.
+            </p>
+            <p>
+              Ao longo da minha trajetória, me aprofundei estrategicamente em Meta Ads, ampliando minha atuação para construção de funis mais completos, geração de demanda qualificada e fortalecimento de posicionamento digital.
+            </p>
+            <p>
+              Eu não analiso apenas CPC ou volume de leads. Analiso margem, funil, posicionamento, estrutura comercial e sustentabilidade da operação.
+            </p>
+            <p className="font-medium text-brand-wine">
+              Meu trabalho é estruturar operações de aquisição com responsabilidade financeira, decisões orientadas por dados e foco em crescimento consistente.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Method = () => {
+  const steps = [
+    {
+      number: '01',
+      title: 'Diagnóstico Estratégico',
+      description: 'Análise profunda da operação, margem, funil e estrutura comercial para identificar oportunidades reais de crescimento.'
+    },
+    {
+      number: '02',
+      title: 'Planejamento Estruturado',
+      description: 'Construção de estratégia de aquisição alinhada com capacidade operacional e objetivos financeiros.'
+    },
+    {
+      number: '03',
+      title: 'Implementação Técnica',
+      description: 'Configuração e otimização de campanhas com foco em performance sustentável e escalabilidade.'
+    },
+    {
+      number: '04',
+      title: 'Gestão e Otimização',
+      description: 'Monitoramento contínuo, análise de dados e ajustes estratégicos para maximizar resultados.'
+    }
+  ];
+
+  return (
+    <section id="metodo" className="section-spacing bg-white">
+      <div className="container-custom">
+        <div className="mb-20">
+          <span className="text-brand-wine font-medium tracking-widest uppercase text-xs mb-4 block">Método de Trabalho</span>
+          <h2 className="text-4xl md:text-5xl font-serif mb-6 text-slate-900">Processo estruturado para transformar investimento em crescimento previsível</h2>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {steps.map((step, idx) => (
+            <motion.div 
+              key={step.number}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              className="p-8 rounded-3xl bg-brand-beige/10 border border-brand-beige hover:border-brand-wine/20 transition-all group"
+            >
+              <span className="text-4xl font-serif italic text-brand-wine/20 group-hover:text-brand-wine/40 transition-colors block mb-6">
+                {step.number}
+              </span>
+              <h3 className="text-xl font-serif font-bold mb-4 text-slate-900">{step.title}</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                {step.description}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Expertise = () => {
+  const areas = [
+    {
+      title: 'Google Ads',
+      subtitle: 'Performance e Escala',
+      description: 'Estruturação de campanhas com foco em conversão qualificada, otimização de lances e maximização de resultados.',
+      items: ['Pesquisa', 'Performance Max', 'Otimização', 'Análise de margem'],
+      icon: <Search className="text-brand-wine" size={32} />
+    },
+    {
+      title: 'Meta Ads',
+      subtitle: 'Funis e Geração de Demanda',
+      description: 'Gestão estratégica de anúncios no Meta Ads, estruturada para gerar demanda, capturar oportunidades e sustentar o crescimento.',
+      items: ['Estruturação de funil completo', 'Captação de Lead', 'Estratégias de retargeting para recuperação e avanço de leads'],
+      icon: <Target className="text-brand-wine" size={32} />
+    },
+    {
+      title: 'Mercado Livre Ads',
+      subtitle: 'Rentabilidade Estruturada',
+      description: 'Gestão focada em TACOS saudável e crescimento sustentável dentro do marketplace.',
+      items: ['TACOS otimizado', 'Product Ads', 'Análise de competitividade', 'Crescimento sustentável'],
+      icon: <ShoppingBag className="text-brand-wine" size={32} />
+    }
+  ];
+
+  return (
+    <section id="atuacao" className="section-spacing bg-brand-purple text-white">
+      <div className="container-custom">
+        <div className="mb-20 text-center">
+          <span className="text-brand-wine/60 font-medium tracking-widest uppercase text-xs mb-4 block">Áreas de Atuação</span>
+          <h2 className="text-4xl md:text-5xl font-serif">Especialidades Estratégicas</h2>
+        </div>
+
+        <div className="grid lg:grid-cols-3 gap-12">
+          {areas.map((area, idx) => (
+            <motion.div 
+              key={area.title}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              className="bg-white/5 border border-white/10 p-10 rounded-[2.5rem] hover:bg-white/10 transition-all"
+            >
+              <div className="bg-white p-4 rounded-2xl w-fit mb-8">
+                {area.icon}
+              </div>
+              <h3 className="text-2xl font-serif font-bold mb-2">{area.title}</h3>
+              <p className="text-brand-wine/80 font-medium text-sm uppercase tracking-wider mb-6">{area.subtitle}</p>
+              <p className="text-slate-300 text-sm leading-relaxed mb-8">
+                {area.description}
+              </p>
+              <ul className="space-y-4">
+                {area.items.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm text-slate-200">
+                    <CheckCircle2 size={18} className="text-brand-wine shrink-0 mt-0.5" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Filter = () => {
+  return (
+    <section className="section-spacing bg-brand-beige/10">
+      <div className="container-custom">
+        <div className="bg-brand-wine rounded-[3rem] p-12 md:p-20 text-white relative overflow-hidden">
+          {/* Decorative element */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+          
+          <div className="max-w-3xl relative z-10">
+            <span className="text-brand-wine/60 bg-white/10 px-4 py-1 rounded-full font-medium tracking-widest uppercase text-[10px] mb-8 inline-block">
+              Filtro de Cliente
+            </span>
+            <h2 className="text-4xl md:text-5xl font-serif mb-8">Para quem faz sentido</h2>
+            <div className="space-y-8 text-lg text-slate-200 leading-relaxed">
+              <p>
+                Meu trabalho é direcionado para empresas que já possuem operação estruturada ou conhecimento mínimo em aquisição digital.
+              </p>
+              <p>
+                O diagnóstico estratégico gratuito é disponibilizado como etapa inicial, porém com um pré-requisito importante:
+              </p>
+              
+              <div className="grid sm:grid-cols-1 gap-4 pt-4">
+                {[
+                  'Já investir ou ter experiência com tráfego pago',
+                  'Ter estrutura para atendimento de demanda',
+                  'Ter controle mínimo de processos (comercial, estoque ou operação)'
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10">
+                    <div className="w-2 h-2 rounded-full bg-brand-wine" />
+                    <span className="text-sm font-medium">{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <p className="italic text-brand-wine/80 pt-6">
+                "Isso porque crescimento sem estrutura gera prejuízo. Meu papel é escalar operações — não organizar o básico."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const CTAFinal = () => {
+  return (
+    <section id="contato" className="section-spacing bg-white text-center">
+      <div className="container-custom">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto"
+        >
+          <h2 className="text-4xl md:text-6xl font-serif mb-8 text-slate-900">Pronto para estruturar crescimento sustentável?</h2>
+          <p className="text-xl text-slate-600 mb-12">
+            Vamos conversar sobre como transformar seu investimento em tráfego pago em resultados previsíveis e lucrativos.
+          </p>
+          <a 
+            href="https://wa.me/5500000000000" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="bg-brand-wine text-white px-12 py-5 rounded-full text-lg font-medium hover:bg-brand-purple transition-all inline-flex items-center gap-3 shadow-2xl shadow-brand-wine/20 group"
+          >
+            Iniciar conversa
+            <MessageCircle size={22} className="group-hover:scale-110 transition-transform" />
+          </a>
+          <p className="mt-6 text-sm text-slate-400 font-medium">
+            Resposta em até 24h úteis
+          </p>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+const Footer = () => {
+  return (
+    <footer className="bg-brand-beige/30 pt-20 pb-10 border-t border-brand-beige">
+      <div className="container-custom">
+        <div className="grid md:grid-cols-4 gap-12 mb-20">
+          <div className="col-span-2">
+            <a href="#" className="mb-6 block group">
+              <img 
+                src="/logo.png" 
+                alt="Thais Teles Logo" 
+                className="h-12 md:h-16 w-auto object-contain transition-transform group-hover:scale-105"
+                referrerPolicy="no-referrer"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  const textLogo = e.currentTarget.nextElementSibling as HTMLElement;
+                  if (textLogo) {
+                    textLogo.classList.remove('hidden');
+                    textLogo.classList.add('block');
+                  }
+                }}
+              />
+              <span className="font-serif text-3xl font-bold tracking-tighter text-brand-wine hidden">
+                THAIS TELES
+              </span>
+            </a>
+            <p className="text-slate-500 max-w-sm leading-relaxed">
+              Consultoria estratégica em tráfego pago com foco em crescimento sustentável e previsível.
+            </p>
+            <div className="flex gap-4 mt-8">
+              <a href="#" className="w-10 h-10 rounded-full bg-brand-wine/5 flex items-center justify-center text-brand-wine hover:bg-brand-wine hover:text-white transition-all">
+                <Instagram size={20} />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full bg-brand-wine/5 flex items-center justify-center text-brand-wine hover:bg-brand-wine hover:text-white transition-all">
+                <Linkedin size={20} />
+              </a>
+            </div>
+          </div>
+          
+          <div>
+            <h4 className="font-bold text-slate-900 mb-6 uppercase tracking-widest text-xs">Menu</h4>
+            <ul className="space-y-4 text-sm text-slate-500">
+              <li><a href="#sobre" className="hover:text-brand-wine transition-colors">Sobre</a></li>
+              <li><a href="#metodo" className="hover:text-brand-wine transition-colors">Método</a></li>
+              <li><a href="#atuacao" className="hover:text-brand-wine transition-colors">Áreas de Atuação</a></li>
+              <li><a href="#contato" className="hover:text-brand-wine transition-colors">Contato</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-bold text-slate-900 mb-6 uppercase tracking-widest text-xs">Contato</h4>
+            <ul className="space-y-4 text-sm text-slate-500">
+              <li className="flex items-center gap-2">
+                <MessageCircle size={16} className="text-brand-wine" />
+                <a href="https://wa.me/5500000000000" className="hover:text-brand-wine transition-colors">WhatsApp</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div className="pt-10 border-t border-brand-beige flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-slate-400 font-medium">
+          <p>© 2026 Thais Teles. Todos os direitos reservados.</p>
+          <div className="flex gap-8">
+            <a href="#" className="hover:text-brand-wine transition-colors">Privacidade</a>
+            <a href="#" className="hover:text-brand-wine transition-colors">Termos</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+const WhatsAppButton = () => {
+  return (
+    <motion.a
+      href="https://wa.me/5500000000000"
+      target="_blank"
+      rel="noopener noreferrer"
+      initial={{ scale: 0, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      whileHover={{ scale: 1.1 }}
+      className="fixed bottom-8 right-8 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl flex items-center justify-center group"
+    >
+      <MessageCircle size={28} />
+      <span className="absolute right-full mr-4 bg-white text-slate-800 px-4 py-2 rounded-xl text-sm font-bold shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-slate-100">
+        Falar com Thais
+      </span>
+    </motion.a>
+  );
+};
+
+// --- Main App ---
+
+export default function App() {
+  return (
+    <div className="selection:bg-brand-wine/10 selection:text-brand-wine">
+      <Navbar />
+      <main>
+        <Hero />
+        <Positioning />
+        <About />
+        <Method />
+        <Expertise />
+        <Filter />
+        <CTAFinal />
+      </main>
+      <Footer />
+      <WhatsAppButton />
+    </div>
+  );
+}
