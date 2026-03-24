@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
 <head>
-    <link rel="icon" type="image/png" href="favicon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./favicon.png">
     <title>Thais Teles - Consultoria Estratégica em Tráfego Pago</title>
     <meta name="description" content="Consultoria premium de tráfego pago com foco em crescimento previsível e sustentabilidade financeira.">
-    
-    <!-- Google Fonts -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS CDN -->
+
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <script>
         tailwind.config = {
             theme: {
@@ -60,6 +58,7 @@
             padding-top: 6rem;
             padding-bottom: 6rem;
         }
+
         @media (min-width: 768px) {
             .section-spacing {
                 padding-top: 8rem;
@@ -74,6 +73,7 @@
             padding-left: 1.5rem;
             padding-right: 1.5rem;
         }
+
         @media (min-width: 768px) {
             .container-custom {
                 padding-left: 3rem;
@@ -84,13 +84,16 @@
         ::-webkit-scrollbar {
             width: 8px;
         }
+
         ::-webkit-scrollbar-track {
             background: #F9F7F2;
         }
+
         ::-webkit-scrollbar-thumb {
             background: rgba(74, 14, 46, 0.2);
             border-radius: 9999px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background: rgba(74, 14, 46, 0.4);
         }
@@ -100,66 +103,79 @@
             transform: translateY(20px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
+
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
     </style>
 </head>
+
 <body class="selection:bg-brand-wine/10 selection:text-brand-wine">
 
-    <!-- Navbar -->
     <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-6">
         <div class="container-custom flex justify-between items-center">
-            <a href="#" class="flex items-center group">
-                <img src="logo.jpg.png" alt="Thais Teles Logo" class="h-12 md:h-16 w-auto object-contain transition-transform group-hover:scale-105" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span class="font-serif text-2xl font-bold tracking-tighter text-brand-wine hidden">THAIS TELES</span>
+            <a href="#" class="font-serif text-2xl md:text-3xl font-bold tracking-tight text-brand-wine">
+                Thais Teles
             </a>
 
-            <!-- Desktop Nav -->
             <div class="hidden md:flex items-center gap-10">
                 <a href="#sobre" class="text-sm font-medium tracking-wide text-slate-600 hover:text-brand-wine transition-colors">Sobre</a>
                 <a href="#metodo" class="text-sm font-medium tracking-wide text-slate-600 hover:text-brand-wine transition-colors">Método</a>
                 <a href="#atuacao" class="text-sm font-medium tracking-wide text-slate-600 hover:text-brand-wine transition-colors">Atuação</a>
                 <a href="#contato" class="text-sm font-medium tracking-wide text-slate-600 hover:text-brand-wine transition-colors">Contato</a>
-                <a href="#contato" class="bg-brand-wine text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-brand-purple transition-all shadow-lg shadow-brand-wine/10">Falar com especialista</a>
+                <a href="https://wa.me/5511958226094?text=Ol%C3%A1%20Thais%2C%20quero%20agendar%20meu%20diagn%C3%B3stico%21" target="_blank" rel="noopener noreferrer" class="bg-brand-wine text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-brand-purple transition-all shadow-lg shadow-brand-wine/10">
+                    Falar com especialista
+                </a>
             </div>
 
-            <!-- Mobile Toggle -->
-            <button id="mobile-menu-toggle" class="md:hidden text-brand-wine">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            <button id="mobile-menu-toggle" class="md:hidden text-brand-wine" aria-label="Abrir menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
             </button>
         </div>
 
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-brand-offwhite border-b border-brand-beige md:hidden">
             <div class="flex flex-col p-8 gap-6">
                 <a href="#sobre" class="text-lg font-medium text-slate-700 mobile-link">Sobre</a>
                 <a href="#metodo" class="text-lg font-medium text-slate-700 mobile-link">Método</a>
                 <a href="#atuacao" class="text-lg font-medium text-slate-700 mobile-link">Atuação</a>
                 <a href="#contato" class="text-lg font-medium text-slate-700 mobile-link">Contato</a>
-                <a href="#contato" class="bg-brand-wine text-white px-6 py-4 rounded-xl text-center font-medium mobile-link">Falar com especialista</a>
+                <a href="https://wa.me/5511958226094?text=Ol%C3%A1%20Thais%2C%20quero%20agendar%20meu%20diagn%C3%B3stico%21" target="_blank" rel="noopener noreferrer" class="bg-brand-wine text-white px-6 py-4 rounded-xl text-center font-medium mobile-link">
+                    Falar com especialista
+                </a>
             </div>
         </div>
     </nav>
 
     <main>
-        <!-- Hero -->
         <section class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-brand-beige/30">
             <div class="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-brand-wine/5 rounded-full blur-3xl"></div>
             <div class="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-brand-purple/5 rounded-full blur-3xl"></div>
-            
+
             <div class="container-custom grid md:grid-cols-2 gap-16 items-center relative z-10">
                 <div class="fade-in">
                     <span class="inline-block text-brand-wine font-medium tracking-[0.2em] uppercase text-xs mb-6">Consultoria estratégica em tráfego pago</span>
-                    <h1 class="text-5xl md:text-7xl font-serif leading-[1.1] text-slate-900 mb-8">Transforme investimento em <span class="italic text-brand-wine">crescimento previsível</span></h1>
-                    <p class="text-lg text-slate-600 leading-relaxed mb-10 max-w-lg">Gestão e consultoria em Google Ads, Meta Ads e Mercado Livre Ads com visão estratégica e foco em sustentabilidade financeira.</p>
+                    <h1 class="text-5xl md:text-7xl font-serif leading-[1.1] text-slate-900 mb-8">
+                        Transforme investimento em <span class="italic text-brand-wine">crescimento previsível</span>
+                    </h1>
+                    <p class="text-lg text-slate-600 leading-relaxed mb-10 max-w-lg">
+                        Gestão e consultoria em Google Ads, Meta Ads e Mercado Livre Ads com visão estratégica e foco em sustentabilidade financeira.
+                    </p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#contato" class="bg-brand-wine text-white px-8 py-4 rounded-full font-medium hover:bg-brand-purple transition-all flex items-center justify-center gap-2 shadow-xl shadow-brand-wine/20 group">
+                        <a href="https://wa.me/5511958226094?text=Ol%C3%A1%20Thais%2C%20quero%20agendar%20meu%20diagn%C3%B3stico%21" target="_blank" rel="noopener noreferrer" class="bg-brand-wine text-white px-8 py-4 rounded-full font-medium hover:bg-brand-purple transition-all flex items-center justify-center gap-2 shadow-xl shadow-brand-wine/20 group">
                             Falar com especialista
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
                         </a>
-                        <a href="#metodo" class="border border-brand-wine/20 text-brand-wine px-8 py-4 rounded-full font-medium hover:bg-brand-wine/5 transition-all text-center">Conheça o método</a>
+                        <a href="#metodo" class="border border-brand-wine/20 text-brand-wine px-8 py-4 rounded-full font-medium hover:bg-brand-wine/5 transition-all text-center">
+                            Conheça o método
+                        </a>
                     </div>
                 </div>
 
@@ -176,12 +192,14 @@
                             <path d="M50,350 Q150,320 200,250 T350,150" fill="none" stroke="#4A0E2E" stroke-width="2" stroke-dasharray="8 8" />
                             <circle cx="350" cy="50" r="8" fill="#4A0E2E" class="animate-pulse" />
                         </svg>
-                        
-                        <!-- Floating metrics cards -->
+
                         <div class="absolute top-1/4 -left-10 glass-card p-4 rounded-2xl animate-bounce" style="animation-duration: 4s;">
                             <div class="flex items-center gap-3">
                                 <div class="bg-green-100 p-2 rounded-lg">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-600"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-600">
+                                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                        <polyline points="17 6 23 6 23 12"></polyline>
+                                    </svg>
                                 </div>
                                 <div>
                                     <p class="text-[10px] uppercase tracking-wider text-slate-400 font-bold">ROI Estratégico</p>
@@ -193,7 +211,11 @@
                         <div class="absolute bottom-1/4 -right-10 glass-card p-4 rounded-2xl animate-bounce" style="animation-duration: 5s; animation-delay: 1s;">
                             <div class="flex items-center gap-3">
                                 <div class="bg-brand-wine/10 p-2 rounded-lg">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-wine"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-wine">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <circle cx="12" cy="12" r="6"></circle>
+                                        <circle cx="12" cy="12" r="2"></circle>
+                                    </svg>
                                 </div>
                                 <div>
                                     <p class="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Escala</p>
@@ -206,11 +228,12 @@
             </div>
         </section>
 
-        <!-- Positioning -->
         <section class="section-spacing bg-white">
             <div class="container-custom">
                 <div class="max-w-3xl mx-auto text-center fade-in">
-                    <h2 class="text-3xl md:text-5xl font-serif leading-tight mb-10 text-slate-900 text-balance">Aquisição como estrutura de crescimento, <br /><span class="italic text-brand-wine">não como impulsionamento</span></h2>
+                    <h2 class="text-3xl md:text-5xl font-serif leading-tight mb-10 text-slate-900 text-balance">
+                        Aquisição como estrutura de crescimento, <br><span class="italic text-brand-wine">não como impulsionamento</span>
+                    </h2>
                     <div class="space-y-6 text-lg text-slate-600 leading-relaxed">
                         <p>Tráfego pago não é sobre rodar anúncios. É sobre construir base para escalar com segurança e previsibilidade.</p>
                         <p>Minha abordagem vai além de métricas superficiais: analiso margem, funil, posicionamento, estrutura comercial e sustentabilidade da operação.</p>
@@ -220,7 +243,6 @@
             </div>
         </section>
 
-        <!-- About -->
         <section id="sobre" class="section-spacing bg-brand-beige/20">
             <div class="container-custom grid md:grid-cols-2 gap-20 items-center">
                 <div class="relative fade-in">
@@ -251,34 +273,34 @@
             </div>
         </section>
 
-        <!-- Method -->
         <section id="metodo" class="section-spacing bg-white">
             <div class="container-custom">
                 <div class="mb-20 fade-in">
                     <span class="text-brand-wine font-medium tracking-widest uppercase text-xs mb-4 block">Método de Trabalho</span>
-                    <h2 class="text-4xl md:text-5xl font-serif mb-6 text-slate-900 max-w-4xl">Processo estruturado para transformar investimento em crescimento previsível</h2>
+                    <h2 class="text-4xl md:text-5xl font-serif mb-6 text-slate-900 max-w-4xl">
+                        Processo estruturado para transformar investimento em crescimento previsível
+                    </h2>
                 </div>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Step 01 -->
                     <div class="p-8 rounded-3xl bg-brand-beige/10 border border-brand-beige hover:border-brand-wine/20 transition-all group fade-in" style="transition-delay: 0.1s;">
                         <span class="text-4xl font-serif italic text-brand-wine/20 group-hover:text-brand-wine/40 transition-colors block mb-6">01</span>
                         <h3 class="text-xl font-serif font-bold mb-4 text-slate-900">Diagnóstico Estratégico</h3>
                         <p class="text-slate-600 text-sm leading-relaxed">Análise profunda da operação, margem, funil e estrutura comercial para identificar oportunidades reais de crescimento.</p>
                     </div>
-                    <!-- Step 02 -->
+
                     <div class="p-8 rounded-3xl bg-brand-beige/10 border border-brand-beige hover:border-brand-wine/20 transition-all group fade-in" style="transition-delay: 0.2s;">
                         <span class="text-4xl font-serif italic text-brand-wine/20 group-hover:text-brand-wine/40 transition-colors block mb-6">02</span>
                         <h3 class="text-xl font-serif font-bold mb-4 text-slate-900">Planejamento Estruturado</h3>
                         <p class="text-slate-600 text-sm leading-relaxed">Construção de estratégia de aquisição alinhada com capacidade operacional e objetivos financeiros.</p>
                     </div>
-                    <!-- Step 03 -->
+
                     <div class="p-8 rounded-3xl bg-brand-beige/10 border border-brand-beige hover:border-brand-wine/20 transition-all group fade-in" style="transition-delay: 0.3s;">
                         <span class="text-4xl font-serif italic text-brand-wine/20 group-hover:text-brand-wine/40 transition-colors block mb-6">03</span>
                         <h3 class="text-xl font-serif font-bold mb-4 text-slate-900">Implementação Técnica</h3>
                         <p class="text-slate-600 text-sm leading-relaxed">Configuração e otimização de campanhas com foco em performance sustentável e escalabilidade.</p>
                     </div>
-                    <!-- Step 04 -->
+
                     <div class="p-8 rounded-3xl bg-brand-beige/10 border border-brand-beige hover:border-brand-wine/20 transition-all group fade-in" style="transition-delay: 0.4s;">
                         <span class="text-4xl font-serif italic text-brand-wine/20 group-hover:text-brand-wine/40 transition-colors block mb-6">04</span>
                         <h3 class="text-xl font-serif font-bold mb-4 text-slate-900">Gestão e Otimização</h3>
@@ -288,7 +310,6 @@
             </div>
         </section>
 
-        <!-- Expertise -->
         <section id="atuacao" class="section-spacing bg-brand-purple text-white">
             <div class="container-custom">
                 <div class="mb-20 text-center fade-in">
@@ -297,54 +318,123 @@
                 </div>
 
                 <div class="grid lg:grid-cols-3 gap-12">
-                    <!-- Google Ads -->
                     <div class="bg-white/5 border border-white/10 p-10 rounded-[2.5rem] hover:bg-white/10 transition-all fade-in" style="transition-delay: 0.1s;">
                         <div class="bg-white p-4 rounded-2xl w-fit mb-8">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4A0E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4A0E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
                         </div>
                         <h3 class="text-2xl font-serif font-bold mb-2">Google Ads</h3>
                         <p class="text-brand-beige font-medium text-sm uppercase tracking-wider mb-6">Performance e Escala</p>
                         <p class="text-slate-300 text-sm leading-relaxed mb-8">Estruturação de campanhas com foco em conversão qualificada, otimização de lances e maximização de resultados.</p>
                         <ul class="space-y-4">
-                            <li class="flex items-start gap-3 text-sm text-slate-200"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F9F7F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Pesquisa</li>
-                            <li class="flex items-start gap-3 text-sm text-slate-200"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F9F7F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Performance Max</li>
-                            <li class="flex items-start gap-3 text-sm text-slate-200"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F9F7F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Otimização</li>
-                            <li class="flex items-start gap-3 text-sm text-slate-200"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F9F7F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Análise de margem</li>
+                            <li class="flex items-start gap-3 text-sm text-slate-200">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F9F7F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                                Pesquisa
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-slate-200">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F9F7F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                                Performance Max
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-slate-200">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F9F7F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                                Otimização
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-slate-200">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F9F7F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                                Análise de margem
+                            </li>
                         </ul>
                     </div>
-                    <!-- Meta Ads -->
+
                     <div class="bg-white/5 border border-white/10 p-10 rounded-[2.5rem] hover:bg-white/10 transition-all fade-in" style="transition-delay: 0.2s;">
                         <div class="bg-white p-4 rounded-2xl w-fit mb-8">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4A0E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4A0E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <circle cx="12" cy="12" r="6"></circle>
+                                <circle cx="12" cy="12" r="2"></circle>
+                            </svg>
                         </div>
                         <h3 class="text-2xl font-serif font-bold mb-2">Meta Ads</h3>
                         <p class="text-brand-beige font-medium text-sm uppercase tracking-wider mb-6">Funis e Geração de Demanda</p>
                         <p class="text-slate-300 text-sm leading-relaxed mb-8">Gestão estratégica de anúncios no Meta Ads, estruturada para gerar demanda, capturar oportunidades e sustentar o crescimento.</p>
                         <ul class="space-y-4">
-                            <li class="flex items-start gap-3 text-sm text-slate-200"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F9F7F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Estruturação de funil completo</li>
-                            <li class="flex items-start gap-3 text-sm text-slate-200"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F9F7F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Captação de Lead</li>
-                            <li class="flex items-start gap-3 text-sm text-slate-200"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F9F7F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Estratégias de retargeting</li>
+                            <li class="flex items-start gap-3 text-sm text-slate-200">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F9F7F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                                Estruturação de funil completo
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-slate-200">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F9F7F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                                Captação de Lead
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-slate-200">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F9F7F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                                Estratégias de retargeting
+                            </li>
                         </ul>
                     </div>
-                    <!-- ML Ads -->
+
                     <div class="bg-white/5 border border-white/10 p-10 rounded-[2.5rem] hover:bg-white/10 transition-all fade-in" style="transition-delay: 0.3s;">
                         <div class="bg-white p-4 rounded-2xl w-fit mb-8">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4A0E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4A0E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                <line x1="3" y1="6" x2="21" y2="6"></line>
+                                <path d="M16 10a4 4 0 0 1-8 0"></path>
+                            </svg>
                         </div>
                         <h3 class="text-2xl font-serif font-bold mb-2">Mercado Livre Ads</h3>
                         <p class="text-brand-beige font-medium text-sm uppercase tracking-wider mb-6">Rentabilidade Estruturada</p>
                         <p class="text-slate-300 text-sm leading-relaxed mb-8">Gestão focada em TACOS saudável e crescimento sustentável dentro do marketplace.</p>
                         <ul class="space-y-4">
-                            <li class="flex items-start gap-3 text-sm text-slate-200"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F9F7F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>TACOS otimizado</li>
-                            <li class="flex items-start gap-3 text-sm text-slate-200"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F9F7F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Product Ads</li>
-                            <li class="flex items-start gap-3 text-sm text-slate-200"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F9F7F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Análise de competitividade</li>
+                            <li class="flex items-start gap-3 text-sm text-slate-200">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F9F7F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                                TACOS otimizado
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-slate-200">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F9F7F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                                Product Ads
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-slate-200">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F9F7F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                                Análise de competitividade
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Filter -->
         <section class="section-spacing bg-brand-beige/10">
             <div class="container-custom">
                 <div class="bg-brand-wine rounded-[3rem] p-12 md:p-20 text-white relative overflow-hidden fade-in">
@@ -356,7 +446,10 @@
                             <p>Meu trabalho é direcionado para empresas que já possuem operação estruturada ou conhecimento mínimo em aquisição digital.</p>
                             <p>O diagnóstico estratégico gratuito é disponibilizado como etapa inicial, porém com um pré-requisito importante:</p>
                             <div class="grid sm:grid-cols-1 gap-4 pt-4">
-                                <div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10"><div class="w-2 h-2 rounded-full bg-brand-wine"></div><span class="text-sm font-medium">Já investir ou ter experiência com tráfego pago</span></div>
+                                <div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10">
+                                    <div class="w-2 h-2 rounded-full bg-brand-wine"></div>
+                                    <span class="text-sm font-medium">Já investir ou ter experiência com tráfego pago</span>
+                                </div>
                             </div>
                             <p class="italic text-brand-wine/80 pt-6">"Isso porque crescimento sem estrutura gera prejuízo. Meu papel é escalar operações — não organizar o básico."</p>
                         </div>
@@ -365,15 +458,16 @@
             </div>
         </section>
 
-        <!-- CTA Final -->
         <section id="contato" class="section-spacing bg-white text-center">
             <div class="container-custom">
                 <div class="max-w-3xl mx-auto fade-in">
                     <h2 class="text-4xl md:text-6xl font-serif mb-8 text-slate-900">Pronto para estruturar crescimento sustentável?</h2>
                     <p class="text-xl text-slate-600 mb-12">Vamos conversar sobre como transformar seu investimento em tráfego pago em resultados previsíveis e lucrativos.</p>
-                    <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer" class="bg-brand-wine text-white px-12 py-5 rounded-full text-lg font-medium hover:bg-brand-purple transition-all inline-flex items-center gap-3 shadow-2xl shadow-brand-wine/20 group">
+                    <a href="https://wa.me/5511958226094?text=Ol%C3%A1%20Thais%2C%20quero%20agendar%20meu%20diagn%C3%B3stico%21" target="_blank" rel="noopener noreferrer" class="bg-brand-wine text-white px-12 py-5 rounded-full text-lg font-medium hover:bg-brand-purple transition-all inline-flex items-center gap-3 shadow-2xl shadow-brand-wine/20 group">
                         Iniciar conversa
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:scale-110 transition-transform"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-11.7 8.38 8.38 0 0 1 3.8.9L21 3z"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:scale-110 transition-transform">
+                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-11.7 8.38 8.38 0 0 1 3.8.9L21 3z"></path>
+                        </svg>
                     </a>
                     <p class="mt-6 text-sm text-slate-400 font-medium">Resposta em até 24h úteis</p>
                 </div>
@@ -381,26 +475,16 @@
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="bg-brand-beige/30 pt-20 pb-10 border-t border-brand-beige">
         <div class="container-custom">
             <div class="grid md:grid-cols-4 gap-12 mb-20">
                 <div class="col-span-2">
-                    <a href="#" class="mb-6 block group">
-                        <img src="logo.jpg.png" alt="Thais Teles Logo" class="h-16 md:h-20 w-auto object-contain transition-transform group-hover:scale-105" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <span class="font-serif text-3xl font-bold tracking-tighter text-brand-wine hidden">THAIS TELES</span>
+                    <a href="#" class="mb-6 block">
+                        <span class="font-serif text-3xl font-bold tracking-tight text-brand-wine">Thais Teles</span>
                     </a>
                     <p class="text-slate-500 max-w-sm leading-relaxed">Consultoria estratégica em tráfego pago com foco em crescimento sustentável e previsível.</p>
-                    <div class="flex gap-4 mt-8">
-                        <a href="#" class="w-10 h-10 rounded-full bg-brand-wine/5 flex items-center justify-center text-brand-wine hover:bg-brand-wine hover:text-white transition-all">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-brand-wine/5 flex items-center justify-center text-brand-wine hover:bg-brand-wine hover:text-white transition-all">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                        </a>
-                    </div>
                 </div>
-                
+
                 <div>
                     <h4 class="font-bold text-slate-900 mb-6 uppercase tracking-widest text-xs">Menu</h4>
                     <ul class="space-y-4 text-sm text-slate-500">
@@ -415,13 +499,17 @@
                     <h4 class="font-bold text-slate-900 mb-6 uppercase tracking-widest text-xs">Contato</h4>
                     <ul class="space-y-4 text-sm text-slate-500">
                         <li class="flex items-center gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4A0E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-11.7 8.38 8.38 0 0 1 3.8.9L21 3z"></path></svg>
-                            <a href="https://wa.me/5500000000000" class="hover:text-brand-wine transition-colors">WhatsApp</a>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4A0E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-11.7 8.38 8.38 0 0 1 3.8.9L21 3z"></path>
+                            </svg>
+                            <a href="https://wa.me/5511958226094?text=Ol%C3%A1%20Thais%2C%20quero%20agendar%20meu%20diagn%C3%B3stico%21" target="_blank" rel="noopener noreferrer" class="hover:text-brand-wine transition-colors">
+                                WhatsApp
+                            </a>
                         </li>
                     </ul>
                 </div>
             </div>
-            
+
             <div class="pt-10 border-t border-brand-beige flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-slate-400 font-medium">
                 <p>© 2026 Thais Teles. Todos os direitos reservados.</p>
                 <div class="flex gap-8">
@@ -432,14 +520,17 @@
         </div>
     </footer>
 
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer" class="fixed bottom-8 right-8 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl flex items-center justify-center group transition-transform hover:scale-110">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-11.7 8.38 8.38 0 0 1 3.8.9L21 3z"></path></svg>
-        <span class="absolute right-full mr-4 bg-white text-slate-800 px-4 py-2 rounded-xl text-sm font-bold shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-slate-100">Falar com Thais</span>
+    <a href="https://wa.me/5511958226094?text=Ol%C3%A1%20Thais%2C%20quero%20agendar%20meu%20diagn%C3%B3stico%21"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-full shadow-lg transition">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 8.042 0C3.602 0 .006 3.596.006 8.036c0 1.417.37 2.803 1.074 4.026L0 16l4.057-1.066a8.032 8.032 0 0 0 3.985 1.017h.003c4.439 0 8.035-3.596 8.035-8.035a7.98 7.98 0 0 0-2.479-5.59z"/>
+        </svg>
+        <span class="hidden md:inline">Falar no WhatsApp</span>
     </a>
 
     <script>
-        // Navbar Scroll Effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -451,7 +542,6 @@
             }
         });
 
-        // Mobile Menu Toggle
         const menuToggle = document.getElementById('mobile-menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileLinks = document.querySelectorAll('.mobile-link');
@@ -466,7 +556,6 @@
             });
         });
 
-        // Simple Intersection Observer for Fade-in animations
         const observerOptions = {
             threshold: 0.1
         };
@@ -481,15 +570,5 @@
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
-    <a href="https://wa.me/5511958226094?text=Ol%C3%A1%20Thais%2C%20quero%20agendar%20meu%20diagn%C3%B3stico%21"
-   target="_blank"
-   class="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-full shadow-lg transition">
-
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-    <path d="M13.601 2.326A7.854 7.854 0 0 0 8.042 0C3.602 0 .006 3.596.006 8.036c0 1.417.37 2.803 1.074 4.026L0 16l4.057-1.066a8.032 8.032 0 0 0 3.985 1.017h.003c4.439 0 8.035-3.596 8.035-8.035a7.98 7.98 0 0 0-2.479-5.59z"/>
-  </svg>
-
-  <span class="hidden md:inline">Falar no WhatsApp</span>
-</a>
 </body>
 </html>
